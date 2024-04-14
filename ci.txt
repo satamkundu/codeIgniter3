@@ -1,0 +1,96 @@
+codeigniter3
+
+Error:
+	(After installation) : Creation of dynamic property CI_URI::$config is deprecated
+
+		> Because PHP8.2 Deprecated creation dynamic property
+		Solution > 
+			#[\AllowDynamicProperties]
+			upon class name of beow meintaion 5 files
+
+			/system/core/URI.php
+						Router.php
+						Loader.php
+						Controller.php
+			/system/database/DB_driver.php
+
+	> Controller creating time
+		public function __construct(){
+	        parent::__construct();
+	    }
+
+
+Important Searches:
+	> how to remove index.php from url in codeigniter 3
+		Solution > 
+		in .htaccess file write
+			RewriteEngine On
+			RewriteCond %{REQUEST_FILENAME} !-f
+			RewriteCond %{REQUEST_FILENAME} !-d
+			RewriteRule ^(.*)$ index.php?/$1 [L]
+
+		OR
+			# Order Allow, Deny
+			Allow from All
+
+			<IfModule mod_rewrite.c>
+			  RewriteEngine On
+			  #RewriteBase /
+
+			  RewriteCond %{REQUEST_FILENAME} !-f
+			  RewriteRule ^ index.php [QSA,L]
+
+			  #RewriteCond %{HTTPS} !=on
+			  #RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
+			  Header always set Content-Security-Policy "upgrade-insecure-requests;"
+
+			</IfModule>
+
+			header set cache-control "no-cache"
+
+	> BASEPATH vs APPPATH in codeigniter 3
+		BASEPATH: Path to the system folder
+		APPPATH: The path to the "application" folder
+
+	> base_url vs site_url codeigniter
+		echo base_url(); // http://example.com/website
+		echo site_url(); // http://example.com/website/index.php
+
+Form Validation : 
+	link : https://phpgurukul.com/form-validation-in-codeigniter/
+
+	trim
+	required
+	min_length[5]
+	max_length[12]
+	exact_length[4]
+	xss_clean
+	matches[password]
+	valid_email
+	is_unique[TABLENAME.COLUMNNAME]
+	alpha
+	numeric
+
+$this->db->get('tableName')->row()
+$this->db->get('tableName')->where('fieldName', 'value')->result_array()
+$this->db->get_where('tableName', ['fieldName' => 'value'])
+$this->db->insert('tableName', ['fieldName' => 'value'])
+$this->db->where('fieldName', 'value')->update('tableName', ['fieldName' => 'value'])
+$this->db->where('fieldName', 'value')->delete('tableName')
+
+Helper
+	url
+
+Library
+	$this->load->library('session');
+	$this->load->library('form_validation');
+
+	$config = [];
+	$config['upload_path']   = $path; 
+    $config['allowed_types'] = 'jpg|png'; 
+    $config['max_size']      = 1024; 
+    $config['max_width']     = 1024; 
+    $config['max_height']    = 768;  
+	$config['encrypt_name'] = TRUE;
+    $this->load->library('upload', $config);
+

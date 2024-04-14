@@ -1,0 +1,88 @@
+OOP 
+        faster and easier to execute
+        provides a clear structure for the programs
+        Don't Repeat Yourself
+        makes the code easier to maintain
+        modify and debug
+
+$this >> The $this keyword refers to the current object, and is only available inside methods.
+
+PHP OOP - Constructor
+        __construct()
+
+final >> final Keyword
+        The final keyword can be used to prevent class inheritance or to prevent method overriding.
+
+Class Constants
+        We can access a constant from outside the class by using the class name followed by the 
+        scope resolution operator (::) followed by the constant name
+
+        >>class Goodbye {
+                  const LEAVING_MESSAGE = "Thank you for visiting W3Schools.com!";
+                }
+
+        >> echo Goodbye::LEAVING_MESSAGE;
+
+        To access a static method use the class name, double colon (::), and the method name:
+         
+self >>
+        self keyword - access constants from inside the class
+                >> echo self::LEAVING_MESSAGE;
+
+
+Abstract Classes and Methods
+        abstract class is a class that contains at least one abstract method
+
+        We can't create any object of abstract class
+
+Inheritance
+        PHP supports only single inheritance
+
+        Simulate multiple inheritance by using interfaces
+
+Interfaces vs. Abstract Classes
+        Interfaces cannot have properties, while abstract classes can
+
+        All interface methods must be public, while abstract class methods is public or protected
+
+        All methods in an interface are abstract, so they cannot be implemented in code and the abstract keyword is not necessary
+
+Traits>>
+use>>
+        Traits are used to declare methods that can be used in multiple classes.
+
+        <?php
+                class MyClass {
+                  use TraitName;
+                }
+        ?>
+
+Static Methods>>
+        Static methods can be called directly - without creating an instance of the class first.
+
+        Static methods are declared with the static keyword:
+
+        <?php
+        class ClassName {
+          public static function staticMethod() {
+            echo "Hello World!";
+          }
+        }
+        ?>
+
+        To access a static method use the class name, double colon (::), and the method name:
+
+        The static keyword is also used to declare variables in a function which keep their value after the function has ended
+        <?php
+                function add1() {
+                  static $number = 0;
+                  $number++;
+                  return $number;
+                }
+
+                echo add1();
+                echo "<br>";
+                echo add1();
+                echo "<br>";
+                echo add1();
+        ?>o
