@@ -94,3 +94,25 @@ Library
 	$config['encrypt_name'] = TRUE;
     $this->load->library('upload', $config);
 
+Session
+	Get session
+	$this->session->userdata('item');
+	$this->session->userdata();
+
+	Set session
+	$this->session->set_userdata($array);
+
+	Unset
+	$this->session->unset_userdata('some_name');
+
+Cookies
+	$this->load->helper('cookie');
+
+	 $cookie= array(
+       'name'   => 'remember_me',
+       'value'  => 'test',                            
+       'expire' => '300',                                                                                   
+       'secure' => TRUE
+   );
+
+   $this->input->set_cookie($cookie);
