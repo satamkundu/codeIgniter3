@@ -1,0 +1,57 @@
+<?php
+// palindrom number 121
+function isPalindrome($number){
+	$temp = $number;
+	$generatedNumber = 0;
+
+	while(floor($temp)){
+		$lastDigit = $temp % 10;		
+		$generatedNumber = $generatedNumber * 10 + $lastDigit;
+		$temp = $temp / 10;
+	}
+
+	return ($generatedNumber == $number) ? true : false;
+}
+
+
+function isPalindromeString($str){
+	if(strrev($str) == $str){
+		echo "Palindrome";
+	}else{
+		echo "Not Palindrome";
+	}
+}
+
+function isArmstrong($number){
+	$sum = 0;
+	$temp = $number;
+	while(floor($temp)){
+		$lastDigit = $temp % 10;
+		$qub = $lastDigit * $lastDigit * $lastDigit;
+		$sum += $qub;
+		$temp = $temp /10;
+	}
+	return ($sum == $number) ? true : false;
+}
+
+function Fibonacci($n){ 
+  
+    $num1 = 0; 
+    $num2 = 1; 
+  
+    $counter = 0; 
+    while ($counter < $n){ 
+        echo ' '.$num1; 
+        $num3 = $num2 + $num1; 
+        $num1 = $num2; 
+        $num2 = $num3; 
+        $counter = $counter + 1; 
+    } 
+} 
+  
+// Driver Code 
+$n = 10; 
+Fibonacci($n); 
+// var_dump(isPalindrome(121));
+// isPalindromeString("MATAM");
+// var_dump(isArmstrong(407));

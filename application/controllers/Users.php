@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
 
         public function testing($var){
+            log_message('error', 'This is an error');
             echo $var;
         }
 
